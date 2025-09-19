@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Profile - Bhargavi Store</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="nav">
+    <div class="logo"><span class="a">B</span> Bhargavi General Store</div>
+  </header>
+
+  <main class="container">
+    <div class="modal" id="profileBox">
+      <h2>Profile</h2>
+      <div id="profileInfo"></div>
+      <div style="margin-top:12px;">
+        <a href="#" onclick="showOrders()">Order List</a> | 
+        <a href="#" onclick="showWishlist()">Wishlist</a> | 
+        <a href="#" onclick="showSupport()">Customer Support</a> | 
+        <a href="#" onclick="changePassword()">Change Password</a> | 
+        <a href="#" onclick="logout()">Logout</a>
+      </div>
+      <div id="profileAction" style="margin-top:12px"></div>
+    </div>
+  </main>
+
+  <script src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', ()=> {
+      renderProfile();
+    });
+    function showOrders(){
+      document.getElementById('profileAction').innerText = 'No orders yet (mock).';
+    }
+    function showWishlist(){
+      document.getElementById('profileAction').innerText = 'Wishlist is empty (mock).';
+    }
+    function showSupport(){
+      document.getElementById('profileAction').innerText = 'Email support@bhargavistore.example (mock).';
+    }
+    function changePassword(){
+      const p = prompt('Enter new password (mock):');
+      if(p) alert('Password changed (mock).');
+    }
+    function logout(){
+      localStorage.removeItem('bgs_user');
+      alert('Logged out.');
+      window.location.href = 'index.html';
+    }
+  </script>
+</body>
+</html>
